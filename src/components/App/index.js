@@ -1,9 +1,14 @@
 import Header from '../Header';
+import Board from '../Board';
 
 
 function App() {
   return (
-    <Header />
+    <>
+      <Header />
+      <Board />
+    </>
+    
   );
 }
 

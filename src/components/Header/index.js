@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 import banner from '../../docs/images/banner.png'
 
 // ==--IMPORT STYLE--==
-// import './style.scss'
+import './style.scss'
 
 function Header() {
   return (
@@ -15,9 +15,8 @@ function Header() {
       <Card className="header-card">
           <Card.Img variant="top" src={banner} className="header-card--image"/>
         <Card.Body className="header-card--body">
-          <Card.Title></Card.Title>
           <Card.Text className="header-card--text">
-            Le comité des Fêtes de Thénouville
+            Déplacez mon avatar avec les touches ←↑↓→ de votre clavier ou vous pouvez cliquer directement sur l'élément qui vous intéresse.
           </Card.Text>
         </Card.Body>
       </Card>
