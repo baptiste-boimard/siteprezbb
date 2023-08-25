@@ -16,7 +16,7 @@ const boardSlice = createSlice({
       state.board = action.payload;
     },
     value : (state) => {
-      // state.coucou = "coucou";
+      state.coucou = "coucou";
       console.log('coucoucoucou');
     }
   }

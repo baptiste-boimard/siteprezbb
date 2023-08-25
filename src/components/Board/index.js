@@ -25,7 +25,7 @@ function Board() {
     base.init(boardContainer);
     // drawTree();
     // drawBoard();
-  });
+  }, []);
 
   // const drawTree = (indexX, indexY, boardCellElm) => {
   //   for (let indexArray=0;indexArray<base.trees.length;indexArray++) {
