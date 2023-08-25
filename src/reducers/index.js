@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
 
 // ==-- IMPORT SLICE--==
-// import loginSlice from '../slice/login';
+import boardSlice from '../slice/board';
 
 
 const rootReducer = combineReducers({
+  boardReducer: boardSlice,
 });
 
 export default rootReducer;

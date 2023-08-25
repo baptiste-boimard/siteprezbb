@@ -1,4 +1,13 @@
+import store from '../../store'
+import {value} from '../../slice/board'
+
+function inputvalue() {
+    store.dispatch(value());
+}
+
+
 const base = {
+
 
     player : {x :0,y :0},
     targetCell : {x :7,y :4},
@@ -213,6 +222,8 @@ const base = {
         winDivLeftP.textContent = `Tu as fait ${base.player.score} déplacements`;
         winDivLeftButtonNext.textContent ='Niveau suivant =>';
         winDivLeftButtonReplay.textContent ='Rejouer ?';
+
+        inputvalue();
     },
     isLittleCoffer () {
 
