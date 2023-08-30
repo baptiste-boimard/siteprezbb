@@ -1,8 +1,8 @@
 import store from '../../store'
-import {value} from '../../slice/board'
+import {openCv} from '../../slice/utilities'
 
-function inputvalue() {
-    store.dispatch(value());
+function openCvModal() {
+    store.dispatch(openCv());
 }
 
 
@@ -223,7 +223,7 @@ const base = {
         winDivLeftButtonNext.textContent ='Niveau suivant =>';
         winDivLeftButtonReplay.textContent ='Rejouer ?';
 
-        inputvalue();
+        openCvModal();
     },
     isLittleCoffer () {
 

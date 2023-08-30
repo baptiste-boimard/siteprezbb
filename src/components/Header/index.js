@@ -13,9 +13,9 @@ function Header() {
     <div className="header">
     {/* ==--COMPONENT CARD--== */}
       <Card className="header-card">
-          <Card.Img variant="top" src={banner} className="header-card--image"/>
-        <Card.Body className="header-card--body">
-          <Card.Text className="header-card--text">
+          <Card.Img variant="top" src={banner} className="header-card-image"/>
+        <Card.Body className="header-card-body">
+          <Card.Text className="header-card-text">
             Déplacez mon avatar avec les touches ←↑↓→ de votre clavier ou vous pouvez cliquer directement sur l'élément qui vous intéresse.
           </Card.Text>
         </Card.Body>

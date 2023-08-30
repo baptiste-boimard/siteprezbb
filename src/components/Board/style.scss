@@ -1,12 +1,12 @@
-/* body {
-  background: #D5EEBB;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-} */
+// body {
+//   background: #D5EEBB !important;
+//   position: relative;
+//   display: flex;
+//   justify-content: center;
+//   flex-direction: column;
+//   align-items: center;
+//   height: 100vh;
+// }
 
 
 .player {
@@ -19,18 +19,25 @@
 }
 
 .board {
-    margin: -7rem;
+    margin: -48rem !important;
+    height: 2100px !important;
+    width: 3360px !important;
+    transform: scale(0.23) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 .board-card {
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transform: scale(0.25);
+    height: 1680px !important;
+    width: 2940px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    // justify-content: center !important;
+    // align-items: center !important;
 }
 .row {
-    display: flex;
+    display: flex !important;
 }
 
 .cell {
