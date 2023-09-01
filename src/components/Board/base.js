@@ -1,7 +1,7 @@
 import store from '../../store'
 
 // ==IMPORT REACT ACTION==
-import { openCv, openGit, openLetter, openVideo } from '../../slice/utilities'
+import { openCv, openGit, openLetter, openVideo, closeAllModal } from '../../slice/utilities'
 
 // == CODE DU JEU ==
 const base = {
@@ -27,6 +27,8 @@ const base = {
 
     drawBoard (boardX = base.board.x, boardY = base.board.y) {
         
+        
+
         for (let indexY=0; indexY < boardY ; indexY++) {
             const boardRowElm = document.createElement('div');
             boardRowElm.classList.add('row');
@@ -128,10 +130,6 @@ const base = {
 
     goToLeft () {
         
-        if (base.cantMove === true)
-            return;
-
-        base.player.direction = 'left';
         let valueBeforeMove = base.player.x;
         let XorY = 'x';
         base.player.x -= 1;
@@ -141,15 +139,12 @@ const base = {
         }
         base.checkTrees(XorY,valueBeforeMove);
         base.player.score += 1;
+        store.dispatch(closeAllModal());
         base.redrawBoard ();
 
     },
     goToRight () {
-        
-        if (base.cantMove === true)
-            return;
 
-        base.player.direction = 'right';
         let valueBeforeMove = base.player.x;
         let XorY = 'x';
         base.player.x += 1;
@@ -159,15 +154,12 @@ const base = {
         }
         base.checkTrees(XorY,valueBeforeMove);
         base.player.score += 1;
+        store.dispatch(closeAllModal());
         base.redrawBoard ();
 
     },
     goToUp () {
-        
-        if (base.cantMove === true)
-            return;
 
-        base.player.direction = 'up';
         let valueBeforeMove = base.player.y;
         let XorY = 'y';
         base.player.y -= 1;
@@ -176,15 +168,12 @@ const base = {
             return base.player.y = valueBeforeMove;
         }
         base.checkTrees(XorY,valueBeforeMove);
+        store.dispatch(closeAllModal());      
         base.redrawBoard ();
 
     },
     goToDown () {
-        
-        if (base.cantMove === true)
-            return;
 
-        base.player.direction = 'down';
         let valueBeforeMove = base.player.y;
         let XorY = 'y';
         base.player.y += 1;
@@ -193,6 +182,7 @@ const base = {
         }
         base.checkTrees(XorY,valueBeforeMove);
         base.player.score += 1;
+        store.dispatch(closeAllModal());      
         base.redrawBoard ();
 
     },

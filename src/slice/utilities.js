@@ -23,6 +23,13 @@ const utilitiesSlice = createSlice({
     openVideo: (state, _) => {
       state.isOpenVideo = !state.isOpenVideo;
     },
+    closeAllModal: (state, _) => {
+      state.isOpenCv = false;
+      state.isOpenGit = false;
+      state.isOpenLetter = false;
+      state.isOpenVideo = false;
+
+    },
   }
 
 });
@@ -32,6 +39,7 @@ export const {
   openGit,
   openLetter,
   openVideo,
+  closeAllModal,
 } = utilitiesSlice.actions;
 
 export default utilitiesSlice.reducer;
