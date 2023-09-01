@@ -1,14 +1,15 @@
 import store from '../../store'
-import {openCv} from '../../slice/utilities'
 
-function openCvModal() {
-    store.dispatch(openCv());
-}
+// ==IMPORT REACT ACTION==
+import { openCv, openGit, openLetter, openVideo } from '../../slice/utilities'
 
+// == CODE DU JEU ==
 const base = {
     player : {x :0,y :0},
     targetCv : {x :1,y :3},
     targetGit : {x :5, y: 1},
+    targetLetter : {x :2, y: 2},
+    targetVideo : {x :7, y: 4},
     trees : [
         {x : 3,y : 2},
         {x : 2,y : 0},
@@ -43,6 +44,18 @@ const base = {
                     const gitElm = document.createElement('div');
                     gitElm.classList.add('git');     
                     boardCellElm.append(gitElm);                    
+                }
+
+                if (indexX === (base.targetLetter.x)  && (indexY === base.targetLetter.y)) {
+                    const letterElm = document.createElement('div');
+                    letterElm.classList.add('letter');     
+                    boardCellElm.append(letterElm);                    
+                }
+
+                if (indexX === (base.targetVideo.x)  && (indexY === base.targetVideo.y)) {
+                    const VideoElm = document.createElement('div');
+                    VideoElm.classList.add('video');     
+                    boardCellElm.append(VideoElm);                    
                 }
                 
                 if (indexX === (base.player.x) && indexY === (base.player.y)) {               
@@ -94,13 +107,21 @@ const base = {
 
     isGameOver () {
         if (base.player.x === base.targetCv.x && base.player.y === base.targetCv.y) {
-            setTimeout(base.isWin(), 200);
+            store.dispatch(openCv());
             return;
         }
-    },
-
-    isWin () {
-        openCvModal();
+        if (base.player.x === base.targetGit.x && base.player.y === base.targetGit.y) {
+            store.dispatch(openGit());
+            return;
+        }
+        if (base.player.x === base.targetLetter.x && base.player.y === base.targetLetter.y) {
+            store.dispatch(openLetter());
+            return;
+        }
+        if (base.player.x === base.targetVideo.x && base.player.y === base.targetVideo.y) {
+            store.dispatch(openVideo());
+            return;
+        }
     },
 
     goToLeft () {
@@ -178,12 +199,11 @@ const base = {
         document.addEventListener ('keyup', base.handleKeyboardEvents);
     },
 
-    listenClickEventCv () {
-        document.querySelector(".cv").addEventListener ('click', base.handleClickCvEvent);       
-    },
-
-    handleClickCvEvent () {
-        openCvModal();
+    listenClickEvent () {
+        document.querySelector(".cv").addEventListener ('click', ()=> {store.dispatch(openCv())});       
+        document.querySelector(".git").addEventListener ('click', ()=> {store.dispatch(openGit())});       
+        document.querySelector(".letter").addEventListener ('click', ()=> {store.dispatch(openLetter())});       
+        document.querySelector(".video").addEventListener ('click', ()=> {store.dispatch(openVideo())});       
     },
 
     handleKeyboardEvents (event) {
@@ -206,7 +226,7 @@ const base = {
         base.boardElm = boardContainer
         base.listenKeyboardEvents();
         base.drawBoard();
-        base.listenClickEventCv();
+        base.listenClickEvent();
     },
 };
 

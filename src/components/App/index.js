@@ -4,6 +4,9 @@ import { useSelector } from 'react-redux';
 import Header from '../Header';
 import Board from '../Board';
 import Cv from '../Cv';
+import Git from '../Git';
+import Letter from '../Letter';
+import Video from '../Video';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -11,15 +14,17 @@ import 'bootstrap/dist/css/bootstrap.css';
 function App() {
 
   // ==CALL STORE==
-  const { isOpenCv } = useSelector((state) => state.utilitiesReducer)
+  const { isOpenCv, isOpenGit, isOpenLetter, isOpenVideo } = useSelector((state) => state.utilitiesReducer)
 
 
   return (
     <>
       <Header />
       <Board />
-      {/* {(isOpenCv && <Cv /> )} */}
-      <Cv />
+      {(isOpenCv && <Cv /> )}
+      {(isOpenGit && <Git /> )}
+      {(isOpenLetter && <Letter /> )}
+      {(isOpenVideo && <Video /> )}
     </>
     
   );

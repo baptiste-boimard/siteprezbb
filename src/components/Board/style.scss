@@ -25,7 +25,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../../docs/images/grassZelda.png);
+    background-image: url(../../docs/images/grass.png);
     background-repeat: repeat;
     width: 420px;
     height: 420px;
@@ -64,10 +64,36 @@
 
 }
 
+.letter {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    background-image: url(../../docs/images/iconelettre.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: scale(0.8);
+    z-index: 1;
+
+}
+
+.video {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    background-image: url(../../docs/images/iconevideo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: scale(0.8);
+    z-index: 1;
+
+}
+
 .tree {
     width: 420px;
     height: 420px;
-    background-image: url(../../docs/images/treeOnGrass.png);
+    background-image: url(../../docs/images/tree.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 25%;

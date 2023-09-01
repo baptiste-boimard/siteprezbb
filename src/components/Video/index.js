@@ -11,27 +11,27 @@ import Modal from 'react-bootstrap/Modal';
 // ==--IMPORT STYLE--==
 
 // ==IMPORT ACTION==
-import { openCv } from '../../slice/utilities';
+import { openVideo } from '../../slice/utilities';
 
-function Cv() {
+function Video() {
   const dispatch = useDispatch();
 
 
   // ==CALL STORE==
-  const { isOpenCv } = useSelector((state) => state.utilitiesReducer);
+  const { isOpenVideo } = useSelector((state) => state.utilitiesReducer);
 
     // == ACTIONS ==
   const handleClose = () => {
-    dispatch(openCv());
+    dispatch(openVideo());
   }
 
   return (
 
-    <Modal show={isOpenCv}>
+    <Modal show={isOpenVideo}>
         <Modal.Header closeButton>
-          <Modal.Title>CV</Modal.Title>
+          <Modal.Title>Video</Modal.Title>
         </Modal.Header>
-        <Modal.Body>C'est la Modal CV</Modal.Body>
+        <Modal.Body>C'est la Modal Video</Modal.Body>
         <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
             Close
@@ -45,4 +45,4 @@ function Cv() {
   );
 }
   
-export default Cv;
+export default Video;
