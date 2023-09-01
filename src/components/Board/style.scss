@@ -1,23 +1,3 @@
-// body {
-//   background: #D5EEBB !important;
-//   position: relative;
-//   display: flex;
-//   justify-content: center;
-//   flex-direction: column;
-//   align-items: center;
-//   height: 100vh;
-// }
-
-
-.player {
-    width: 240px;
-    height: 372px;
-    background-image: url(../../docs/images/moipixel.png);
-    transform: scale(1);
-    margin: 24px auto;
-    z-index: 2;
-}
-
 .board {
     margin: -48rem !important;
     height: 2100px !important;
@@ -41,140 +21,48 @@
 }
 
 .cell {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(255, 255, 255);
     background-image: url(../../docs/images/grassZelda.png);
     background-repeat: repeat;
-    /* background-size; */
     width: 420px;
     height: 420px;
-    /* border: 1px solid black; */
+    border: 1px solid rgb(26, 122, 47);
     box-sizing: border-box; 
-    /* ajoute les bordures à l'intérieur */
 }
 
-.coffer {
-    background-image: url(../../docs/images/cofferOnGrass.png);
-    background-size: cover;
-}
-
-.winDivElm {
+.player {
     position: absolute;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
+    width: 240px;
+    height: 372px;
+    background-image: url(../../docs/images/moipixel.png);
+    transform: scale(1);
     z-index: 2;
-    height: 25vh;
-    width: 600px;
-    background-color: #5F7A61;
-    padding :10px;
-    text-align: center;
-    border: 5px solid #444941;
-}
-.winDivLeftElm {
-    display: flex;
-    flex-direction: column;
-}
-.winDivLeftP {
-    font-size: 1em;
-    padding: 5px;
-    color:#D5EEBB ;
-    margin-top: 10px;
-}
-.winDivLeftH1{
-    font-size: 2em;
-    padding: 5px;
-    color:#D5EEBB ;
-}
-.welcomeHero{
-    padding: 0 15px;
-}
-.winDivLeftButtonReplay {
-    padding-right: 8px;
-}
-.winDivLeftButtonNext, .winDivLeftButtonReplay, .winDivLeftButtonOK {
-    background-color: #444941;
-    color:#D5EEBB ;
-    padding: 0.3em;
-    margin-top: 2em
-}
-.winDivLeftButtonNext {
-    margin-left: 2em;
 }
 
-.winDivRightElm {
-    width: 50px;
-    height: 100px;
-    /* background-image: url(../img//linkTresor.png); */
-    /* background-image: url(../img/gantlet.png); */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    transform: scale(1.5);
-}
-
-.winDivLeftForm {
-    display: flex;
-    flex-direction: column;
-}
-.dialogBox {
+.cv {
     position: absolute;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 500px;
-    height: 25vh;
-    padding :10px;
-    background-color: #5F7A61;
-    border: 5px solid #444941;
-    color:#D5EEBB ;
-    text-align: center;
-    visibility: hidden;
-}
-.dialogBox-form{
-    display: flex;
-    flex-direction: column;
-}
-.dialogBox h2 {
-    font-size: 2rem;
-}
-.dialogBox h3 {
-    font-size: 1.5rem;
-}
-.dialogBox button {
-    border: none;
-    background-color:#444941 ;
-    color: #D5EEBB;
-    margin-top: 0.5rem;
-}
-.dialogBox button:hover {
-    color: #444941;
-    background-color:#D5EEBB ;
+    width: 360px;
+    height: 360px;
+    background-image: url(../../docs/images/iconecv.png);
+    background-size: contain;
+    transform: scale(0.8);
+    z-index: 1;
 
-
-}
-.dialogBox img {
-    transform: scale(3.2);
-}
-.box {
-    padding : 0.5rem;
-}
-.stone {
-    width: 70px;
-    height: 70px;
-    background-image: url(../../docs/images/stoneOnGrass.png);
-    background-size: cover;
 }
 
 .tree {
     width: 420px;
     height: 420px;
     background-image: url(../../docs/images/treeOnGrass.png);
-    /* background-repeat: repeat; */
-    background-size: cover;
-    transform: scale(1);
-    margin :0px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 25%;
+    transform: scale(0.90);
+    z-index: 1;
 }
 
 .coord {

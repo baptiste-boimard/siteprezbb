@@ -7,7 +7,7 @@ function openCvModal() {
 
 const base = {
     player : {x :0,y :0},
-    targetCell : {x :7,y :4},
+    targetCv : {x :1,y :3},
     trees : [
         {x : 3,y : 2},
         {x : 2,y : 0},
@@ -32,17 +32,16 @@ const base = {
                 const boardCellElm = document.createElement('div');
                 boardCellElm.classList.add('cell');
   
-                if (indexX === (base.targetCell.x)  && (indexY === base.targetCell.y)) {
-                    boardCellElm.classList.add('coffer');
+                if (indexX === (base.targetCv.x)  && (indexY === base.targetCv.y)) {
+                    const cvElm = document.createElement('div');
+                    cvElm.classList.add('cv');     
+                    boardCellElm.append(cvElm);                    
                 }
                 
                 if (indexX === (base.player.x) && indexY === (base.player.y)) {               
                     const playerElm = document.createElement('div');
-                    console.log(playerElm);
                     playerElm.classList.add('player');                    
-                    console.log(boardCellElm);
                     boardCellElm.append(playerElm);     
-                    console.log(boardCellElm);
                 }
 
                 // Ajout des coordonées des cases
@@ -87,7 +86,7 @@ const base = {
     },
 
     isGameOver () {
-        if (base.player.x === base.targetCell.x && base.player.y === base.targetCell.y) {
+        if (base.player.x === base.targetCv.x && base.player.y === base.targetCv.y) {
             setTimeout(base.isWin(), 200);
             return;
         }
@@ -96,7 +95,7 @@ const base = {
     isWin () {
         openCvModal();
     },
-  
+
     goToLeft () {
         
         if (base.cantMove === true)
