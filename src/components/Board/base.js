@@ -75,6 +75,8 @@ const base = {
             base.boardElm.append(boardRowElm);
         }
         base.isGameOver();
+                base.listenClickEvent();
+
 
     },
 
@@ -226,7 +228,6 @@ const base = {
         base.boardElm = boardContainer
         base.listenKeyboardEvents();
         base.drawBoard();
-        base.listenClickEvent();
     },
 };
 
