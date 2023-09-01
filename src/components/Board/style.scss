@@ -25,7 +25,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(255, 255, 255);
     background-image: url(../../docs/images/grassZelda.png);
     background-repeat: repeat;
     width: 420px;
@@ -50,6 +49,17 @@
     background-image: url(../../docs/images/iconecv.png);
     background-size: contain;
     transform: scale(0.8);
+    z-index: 1;
+
+}
+
+.git {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    background-image: url(../../docs/images/iconegit.png);
+    background-size: contain;
+    transform: scale(0.9);
     z-index: 1;
 
 }

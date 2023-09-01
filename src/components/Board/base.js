@@ -8,6 +8,7 @@ function openCvModal() {
 const base = {
     player : {x :0,y :0},
     targetCv : {x :1,y :3},
+    targetGit : {x :5, y: 1},
     trees : [
         {x : 3,y : 2},
         {x : 2,y : 0},
@@ -36,6 +37,12 @@ const base = {
                     const cvElm = document.createElement('div');
                     cvElm.classList.add('cv');     
                     boardCellElm.append(cvElm);                    
+                }
+
+                if (indexX === (base.targetGit.x)  && (indexY === base.targetGit.y)) {
+                    const gitElm = document.createElement('div');
+                    gitElm.classList.add('git');     
+                    boardCellElm.append(gitElm);                    
                 }
                 
                 if (indexX === (base.player.x) && indexY === (base.player.y)) {               
@@ -171,6 +178,14 @@ const base = {
         document.addEventListener ('keyup', base.handleKeyboardEvents);
     },
 
+    listenClickEventCv () {
+        document.querySelector(".cv").addEventListener ('click', base.handleClickCvEvent);       
+    },
+
+    handleClickCvEvent () {
+        openCvModal();
+    },
+
     handleKeyboardEvents (event) {
         const keyupPressed = event.key;
         console.log(keyupPressed);
@@ -191,6 +206,7 @@ const base = {
         base.boardElm = boardContainer
         base.listenKeyboardEvents();
         base.drawBoard();
+        base.listenClickEventCv();
     },
 };
 
