@@ -6,9 +6,10 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 // ==--IMPORT IMAGE--==
-// import banner from '../../docs/images/banner.png'
+import cv from '../../docs/images/cv.jpg'
 
 // ==--IMPORT STYLE--==
+import './style.scss';
 
 // ==IMPORT ACTION==
 import { openCv } from '../../slice/utilities';
@@ -28,16 +29,15 @@ function Cv() {
   return (
 
     <Modal show={isOpenCv}>
-        <Modal.Header closeButton>
-          <Modal.Title>CV</Modal.Title>
+        <Modal.Header closeButton onHide={handleClose}>
+          <Modal.Title>Consulter mon CV</Modal.Title>
         </Modal.Header>
-        <Modal.Body>C'est la Modal CV</Modal.Body>
+        <Modal.Body>
+          <img src={cv} className="img-cv" alt="cv"/>
+        </Modal.Body>
         <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-          Save Changes
+            Fermer
           </Button>
         </Modal.Footer>
       </Modal>
