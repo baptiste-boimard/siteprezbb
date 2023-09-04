@@ -1,3 +1,5 @@
+import React from 'react'
+import ReactPlayer from 'react-player/youtube'
 import { useSelector, useDispatch } from 'react-redux';
 
 // ==IMPORT COMPONENTS==
@@ -6,9 +8,9 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 // ==--IMPORT IMAGE--==
-// import banner from '../../docs/images/banner.png'
 
 // ==--IMPORT STYLE--==
+import './style.scss';
 
 // ==IMPORT ACTION==
 import { openVideo } from '../../slice/utilities';
@@ -28,16 +30,15 @@ function Video() {
   return (
 
     <Modal show={isOpenVideo}>
-        <Modal.Header closeButton>
-          <Modal.Title>Video</Modal.Title>
+        <Modal.Header closeButton onHide={handleClose}>
+          <Modal.Title>Je me présente</Modal.Title>
         </Modal.Header>
-        <Modal.Body>C'est la Modal Video</Modal.Body>
+        <Modal.Body>
+          <ReactPlayer url='https://youtu.be/UdT9ylXkTg8' controls/>
+        </Modal.Body>
         <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-          Save Changes
+            Fermer
           </Button>
         </Modal.Footer>
       </Modal>

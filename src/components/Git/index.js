@@ -25,18 +25,23 @@ function Git() {
     dispatch(openGit());
   }
 
+  const handleOpen = () => {
+    window.open('https://waytolearnx.com', '_blank');
+  }
+
   return (
 
     <Modal show={isOpenGit}>
         <Modal.Header closeButton>
           <Modal.Title>Git</Modal.Title>
         </Modal.Header>
-        <Modal.Body>C'est la Modal Git</Modal.Body>
+        <Modal.Body>
+        </Modal.Body>
         <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleOpen}>
           Save Changes
           </Button>
         </Modal.Footer>
