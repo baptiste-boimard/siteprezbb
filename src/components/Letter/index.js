@@ -1,14 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-// ==IMPORT COMPONENTS==
 // ==IMPORT BOOTSTRAP==
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-
-// ==--IMPORT IMAGE--==
-// import banner from '../../docs/images/banner.png'
-
-// ==--IMPORT STYLE--==
 
 // ==IMPORT ACTION==
 import { openLetter } from '../../slice/utilities';
@@ -16,11 +10,13 @@ import { openLetter } from '../../slice/utilities';
 function Letter() {
   const dispatch = useDispatch();
 
-
   // ==CALL STORE==
   const { isOpenLetter } = useSelector((state) => state.utilitiesReducer);
 
-    // == ACTIONS ==
+  // == ACTIONS ==
+  /**
+   * Ferme la modal Letter
+   */
   const handleClose = () => {
     dispatch(openLetter());
   }
@@ -46,7 +42,6 @@ function Letter() {
           Je me tiens à votre disposition si vous désirez obtenir des informations supplémentaires et je serais ravi de pouvoir m'entretenir avec vous au sujet de votre entreprise et de vos projets.
           <br /><br /><br />
           Cordialement. 
-
         </Modal.Body>
         <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>

@@ -2,12 +2,9 @@ import React from 'react'
 import ReactPlayer from 'react-player/youtube'
 import { useSelector, useDispatch } from 'react-redux';
 
-// ==IMPORT COMPONENTS==
 // ==IMPORT BOOTSTRAP==
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-
-// ==--IMPORT IMAGE--==
 
 // ==--IMPORT STYLE--==
 import './style.scss';
@@ -18,11 +15,13 @@ import { openVideo } from '../../slice/utilities';
 function Video() {
   const dispatch = useDispatch();
 
-
   // ==CALL STORE==
   const { isOpenVideo } = useSelector((state) => state.utilitiesReducer);
 
-    // == ACTIONS ==
+  // == ACTIONS ==
+  /**
+   * Ferme la modal Video
+   */
   const handleClose = () => {
     dispatch(openVideo());
   }

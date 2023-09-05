@@ -1,7 +1,7 @@
 import store from '../../store'
 
 // ==IMPORT REACT ACTION==
-import { openCv, openGit, openLetter, openVideo, closeAllModal } from '../../slice/utilities'
+import { openCv, openGit, openLetter, openVideo, openNws, closeAllModal } from '../../slice/utilities'
 
 // == CODE DU JEU ==
 const base = {
@@ -10,6 +10,7 @@ const base = {
     targetGit : {x :5, y: 1},
     targetLetter : {x :2, y: 2},
     targetVideo : {x :7, y: 4},
+    targetNws : {x :1, y: 0},
     trees : [
         {x : 3,y : 2},
         {x : 2,y : 0},
@@ -23,8 +24,12 @@ const base = {
         {x : 6,y : 1},
     ],
     board : {x :8,y :5},
-    // boardElm : document.querySelector('.board-card'),
 
+    /**
+     * Dessine le board en fonction de la taille définie
+     * @param {Object} boardX Taille horizonthale
+     * @param {Object} boardY Taille verticale
+     */
     drawBoard (boardX = base.board.x, boardY = base.board.y) {
         
         
@@ -55,11 +60,17 @@ const base = {
                 }
 
                 if (indexX === (base.targetVideo.x)  && (indexY === base.targetVideo.y)) {
-                    const VideoElm = document.createElement('div');
-                    VideoElm.classList.add('video');     
-                    boardCellElm.append(VideoElm);                    
+                    const videoElm = document.createElement('div');
+                    videoElm.classList.add('video');     
+                    boardCellElm.append(videoElm);                    
                 }
                 
+                if (indexX === (base.targetNws.x) && indexY === (base.targetNws.y)) {               
+                    const nwsElm = document.createElement('div');
+                    nwsElm.classList.add('nws');                    
+                    boardCellElm.append(nwsElm);     
+                }
+
                 if (indexX === (base.player.x) && indexY === (base.player.y)) {               
                     const playerElm = document.createElement('div');
                     playerElm.classList.add('player');                    
@@ -81,7 +92,12 @@ const base = {
 
 
     },
-
+    /**
+     * Implante les arbres sur le board
+     * @param {Value} indexX Coordonnée X
+     * @param {Value} indexY Coordonnée Y
+     * @param {Object} boardCellElm Div qui doit accueillir l'élément
+     */
     drawTree (indexX, indexY, boardCellElm) {
         for (let indexArray=0;indexArray<base.trees.length;indexArray++) {
             if (indexX === (base.trees[indexArray].x)  && (indexY === base.trees[indexArray].y)) {
@@ -91,7 +107,12 @@ const base = {
             }
         }
     },
-
+    /**
+     * Vérifier la présence d'arbre avant le déplacement
+     * @param {String} XorY Direction du mouvement
+     * @param {Value} valueBeforeMove Coordonnée de la direction avant déplacement
+     * @returns 
+     */
     checkTrees (XorY, valueBeforeMove) {
         for (let indexArray=0;indexArray<base.trees.length;indexArray++) {
             if (base.player.x === (base.trees[indexArray].x)  && (base.player.y === base.trees[indexArray].y)) {
@@ -101,14 +122,25 @@ const base = {
         }
     },
 
+    /**
+     * Efface le board
+     */
     clearBoard () {
         base.boardElm.textContent = '';
     },
+
+    /**
+     * Redessine le board
+     */
     redrawBoard () {
         base.clearBoard();
         base.drawBoard();
     },
 
+    /**
+     * Vérifie si le joueur atteint un objectif
+     * @returns Déclenche une action React
+     */
     isGameOver () {
         if (base.player.x === base.targetCv.x && base.player.y === base.targetCv.y) {
             store.dispatch(openCv());
@@ -126,8 +158,16 @@ const base = {
             store.dispatch(openVideo());
             return;
         }
+        if (base.player.x === base.targetNws.x && base.player.y === base.targetNws.y) {
+            store.dispatch(openNws());
+            return;
+        }
     },
 
+    /**
+     * Déplace le joueur vers la gauche
+     * @returns Déplace le joueur vers la gauche si possiblité
+     */
     goToLeft () {
         
         let valueBeforeMove = base.player.x;
@@ -143,6 +183,11 @@ const base = {
         base.redrawBoard ();
 
     },
+
+    /**
+     * Déplace le joueur vers la droite
+     * @returns Déplace le joueur vers la droite si possiblité
+     */
     goToRight () {
 
         let valueBeforeMove = base.player.x;
@@ -158,6 +203,11 @@ const base = {
         base.redrawBoard ();
 
     },
+
+    /**
+     * Déplace le joueur vers le haut
+     * @returns Déplace le joueur vers le haut si possiblité
+     */
     goToUp () {
 
         let valueBeforeMove = base.player.y;
@@ -172,6 +222,11 @@ const base = {
         base.redrawBoard ();
 
     },
+
+    /**
+     * Déplace le joueur vers le bas
+     * @returns Déplace le joueur vers le bas si possiblité
+     */
     goToDown () {
 
         let valueBeforeMove = base.player.y;
@@ -187,17 +242,28 @@ const base = {
 
     },
 
+    /**
+     * Ecouteur d'événements clavier
+     */
     listenKeyboardEvents () {
         document.addEventListener ('keyup', base.handleKeyboardEvents);
     },
 
+    /**
+     * Ecouteur d'événements souris
+     */
     listenClickEvent () {
         document.querySelector(".cv").addEventListener ('click', ()=> {store.dispatch(openCv())});       
         document.querySelector(".git").addEventListener ('click', ()=> {store.dispatch(openGit())});       
         document.querySelector(".letter").addEventListener ('click', ()=> {store.dispatch(openLetter())});       
         document.querySelector(".video").addEventListener ('click', ()=> {store.dispatch(openVideo())});       
+        document.querySelector(".nws").addEventListener ('click', ()=> {store.dispatch(openNws())});       
     },
 
+    /**
+     * En fonction de l'événement clavier déclenche un déplacement
+     * @param {Object} event Touche utilisée
+     */
     handleKeyboardEvents (event) {
         const keyupPressed = event.key;
         console.log(keyupPressed);
@@ -214,6 +280,10 @@ const base = {
         }
     },
 
+    /**
+     * Initiatialisation du jeux
+     * @param {Object} boardContainer Element du DOM où sera executer le jeu
+     */
     init (boardContainer) {    
         base.boardElm = boardContainer
         base.listenKeyboardEvents();

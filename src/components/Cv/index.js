@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-// ==IMPORT COMPONENTS==
 // ==IMPORT BOOTSTRAP==
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -17,11 +16,13 @@ import { openCv } from '../../slice/utilities';
 function Cv() {
   const dispatch = useDispatch();
 
-
   // ==CALL STORE==
   const { isOpenCv } = useSelector((state) => state.utilitiesReducer);
 
-    // == ACTIONS ==
+  // == ACTIONS ==
+  /**
+   * Ferme la modal Cv
+   */
   const handleClose = () => {
     dispatch(openCv());
   }

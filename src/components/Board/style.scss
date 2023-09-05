@@ -64,6 +64,19 @@
 
 }
 
+.nws {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    background-image: url(../../docs/images/nws.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: 12%;
+    transform: scale(0.9);
+    z-index: 1;
+
+}
+
 .letter {
     position: absolute;
     width: 360px;

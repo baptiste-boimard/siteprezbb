@@ -1,19 +1,21 @@
 
 import { useEffect } from 'react';
-// ==IMPORT COMPONENTS==
-// ==IMPORT BOOTSTRAP==
+
+// ==--IMPORT BOOTSTRAP--==
 import Card from 'react-bootstrap/Card';
+
+// ==--IMPORT DU JEU--==
 import base from './base';
-// ==--IMPORT IMAGE--==
 
 // ==--IMPORT STYLE--==
 import 'bootstrap/dist/css/bootstrap.css';
 import './style.scss';
 
-// ==--IMPORT ACTION--==
-
 function Board() {
 
+  /**
+   * Initialise le jeux avec en paramètre l'élément le contenant
+   */
   useEffect(() => {
     const boardContainer = document.querySelector(".board");         
     base.init(boardContainer);
@@ -21,13 +23,7 @@ function Board() {
 
   return (
     <>
-
-    {/* ==--COMPONENT CARD--== */}
-      <Card className="board">
-
-      </Card>
-    {/* ==--COMPONENT CARD--== */}
-
+      <Card className="board"></Card>
     </>
   );
 }

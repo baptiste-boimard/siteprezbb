@@ -5,6 +5,7 @@ isOpenCv : false,
 isOpenGit : false,
 isOpenLetter : false,
 isOpenVideo : false,
+isOpenNws : false,
 };
 
 const utilitiesSlice = createSlice({
@@ -23,11 +24,15 @@ const utilitiesSlice = createSlice({
     openVideo: (state, _) => {
       state.isOpenVideo = !state.isOpenVideo;
     },
+    openNws: (state, _) => {
+      state.isOpenNws = !state.isOpenNws;
+    },
     closeAllModal: (state, _) => {
       state.isOpenCv = false;
       state.isOpenGit = false;
       state.isOpenLetter = false;
       state.isOpenVideo = false;
+      state.isOpenNws = false;
 
     },
   }
@@ -39,6 +44,7 @@ export const {
   openGit,
   openLetter,
   openVideo,
+  openNws,
   closeAllModal,
 } = utilitiesSlice.actions;
 

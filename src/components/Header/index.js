@@ -1,4 +1,3 @@
-// ==IMPORT COMPONENTS==
 // ==IMPORT BOOTSTRAP==
 import Card from 'react-bootstrap/Card';
 
@@ -10,8 +9,8 @@ import './style.scss'
 
 function Header() {
   return (
+
     <div className="header">
-    {/* ==--COMPONENT CARD--== */}
       <Card className="header-card">
           <Card.Img variant="top" src={banner} className="header-card-image"/>
         <Card.Body className="header-card-body">
@@ -20,9 +19,8 @@ function Header() {
           </Card.Text>
         </Card.Body>
       </Card>
-    {/* ==--COMPONENT CARD--== */}
-
     </div>
+
   );
 }
 

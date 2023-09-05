@@ -5,45 +5,45 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 // ==--IMPORT IMAGE--==
-import github from '../../docs/images/github.png'
+import imgNws from '../../docs/images/sitenws.png'
 
 // ==--IMPORT STYLE--==
 import './style.scss';
 
 // ==IMPORT ACTION==
-import { openGit } from '../../slice/utilities';
+import { openNws } from '../../slice/utilities';
 
-function Git() {
+function Nws() {
   const dispatch = useDispatch();
 
   // ==CALL STORE==
-  const { isOpenGit } = useSelector((state) => state.utilitiesReducer);
+  const { isOpenNws } = useSelector((state) => state.utilitiesReducer);
 
   // == ACTIONS ==
   /**
-   * Ferme la modal Git
+   * Ferme la modal Nws
    */
   const handleClose = () => {
-    dispatch(openGit());
+    dispatch(openNws());
   }
   /**
-   * Ouvre un nouvel onglet vers Github
+   * Ouvre un nouvel onglet vers la Nws
    */
   const handleOpen = () => {
-    window.open('https://github.com/baptiste-boimard?', '_blank');
+    window.open('https://normandiewebschool.fr/', '_blank');
   }
 
   return (
 
-    <Modal show={isOpenGit}>
+    <Modal show={isOpenNws}>
         <Modal.Header closeButton onHide={handleClose}>
-          <Modal.Title>Lien vers mon Github</Modal.Title>
+          <Modal.Title>Lien vers la Normandie Web School</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Souhaitez vous ouvrir mon Github dans un autre obglet ?</p>
-          <img src={github}
-               className="img-git"
-               alt="image_github"
+          <p>Vous souhaitez découvrir mon école ?</p>
+          <img src={imgNws}
+               className="img-nws"
+               alt="image_nws"
                onClick={handleOpen} />
         </Modal.Body>
         <Modal.Footer>
@@ -59,4 +59,4 @@ function Git() {
   );
 }
   
-export default Git;
+export default Nws;
