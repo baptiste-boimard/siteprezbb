@@ -40,7 +40,7 @@ function Git() {
           <Modal.Title>Lien vers mon Github</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Souhaitez vous ouvrir mon Github dans un autre obglet ?</p>
+          <p>Souhaitez-vous ouvrir mon Github dans un autre onglet ?</p>
           <img src={github}
                className="img-git"
                alt="image_github"
