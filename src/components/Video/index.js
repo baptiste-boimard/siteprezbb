@@ -33,7 +33,7 @@ function Video() {
           <Modal.Title>Je me présente</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <ReactPlayer url='https://youtu.be/UdT9ylXkTg8' controls/>
+          <ReactPlayer url='https://youtu.be/WKarF1reZsM' controls/>
         </Modal.Body>
         <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
