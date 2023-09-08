@@ -15,7 +15,13 @@ code {
 }
 
 #root {
+  margin-left: -1.5%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-content: center;
+}
+
+.div.fade.modal.show {
+  display: flex !important;
 }

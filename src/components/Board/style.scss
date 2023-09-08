@@ -122,17 +122,21 @@
 }
 
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
 
     .board {
         margin: -58rem !important;
-        // height: 2100px !important;
-        // width: 3360px !important;
         transform: scale(0.10) !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
+    }
+
+
+}
+
+@media (max-width: 320px) {
+
+    .board {
+        margin: -59rem !important;
+        transform: scale(0.09) !important;
     }
 
 
