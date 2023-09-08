@@ -32,8 +32,13 @@ function Video() {
         <Modal.Header closeButton onHide={handleClose}>
           <Modal.Title>Je me présente</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <ReactPlayer url='https://youtu.be/WKarF1reZsM' controls/>
+        <Modal.Body className='player-wrapper'>
+          <ReactPlayer url='https://youtu.be/WKarF1reZsM'
+                       className='react-player'
+                       controls
+                       width='100%'
+                       height='100%'
+          />
         </Modal.Body>
         <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
