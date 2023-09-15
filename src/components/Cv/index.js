@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 // ==--IMPORT IMAGE--==
-import cv from '../../docs/images/cv.jpg'
+import cv from '../../docs/images/cvNew.png'
 
 // ==--IMPORT STYLE--==
 import './style.scss';
